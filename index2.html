@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Best Places in the World</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <img src="images/logo.jpg" alt="Logo" class="logo" />
+    <h1>THE BEST PLACES IN THE WORLD</h1>
+    <nav>
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">COUNTRIES</a></li>
+        <li><a href="#">ABOUT</a></li>
+        <li><a href="#">CONTACT</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="intro">
+    <h2 id="page-title"></h2>
+    <p id="page-description"></p>
+  </section>
+
+  <main class="card-container">
+    <template id="card-template">
+      <section class="card">
+        <img src="" alt="" class="card-img" />
+        <div class="card-content">
+          <h3></h3>
+          <p></p>
+        </div>
+      </section>
+    </template>
+  </main>
+
+  <script src="data/content.js"></script>
+  <script>
+    document.getElementById("page-title").textContent = contentData.title;
+    document.getElementById("page-description").textContent = contentData.description;
+
+    const template = document.getElementById("card-template");
+    const main = document.querySelector("main");
+
+    contentData.items.forEach(item => {
+      const clone = template.content.cloneNode(true);
+      clone.querySelector("h3").textContent = item.heading;
+      clone.querySelector("p").textContent = item.text;
+      clone.querySelector("img").src = item.image;
+      clone.querySelector("img").alt = item.heading;
+      main.appendChild(clone);
+    });
+  </script>
+</body>
+</html>
