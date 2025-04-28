@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Global Styles */
@@ -18,6 +19,45 @@ body {
         "main"
         "footer";
     min-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;
+}
+
+body.dark-mode .section,
+body.dark-mode .country {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+}
+
+body.dark-mode .country h3,
+body.dark-mode .country p {
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+}
+
+body.dark-mode .country:hover {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    border-color: #444;
+}
+
+body.dark-mode .trending-card {
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+}
+
+body.dark-mode .trending-card h3 {
+    color: #f0f0f0;
 }
 
 /* Container for alignment */
@@ -85,11 +125,135 @@ header nav ul li a:hover {
     border-bottom: 2px solid #ff6b6b;
 }
 
+/* Search Bar Styles */
+.search-container {
+    margin: 20px auto;
+    max-width: 600px;
+    position: relative;
+}
+
+.search-bar {
+    display: flex;
+    position: relative;
+}
+
+#search-input {
+    flex: 1;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+#search-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #6e1212;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#search-btn:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 100;
+    display: none;
+}
+
+body.dark-mode .search-suggestions {
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+}
+
+.search-suggestion-item {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.search-suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
+body.dark-mode .search-suggestion-item:hover {
+    background-color: #3a3a3a;
+}
+
+/* Theme Toggle Switch */
+.theme-toggle {
+    display: inline-block;
+    position: relative;
+    margin-left: 10px;
+}
+
+.theme-switch {
+    display: none;
+}
+
+.theme-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50px;
+    height: 26px;
+    background: #333;
+    border-radius: 50px;
+    position: relative;
+    padding: 5px;
+}
+
+.theme-label i {
+    font-size: 14px;
+    z-index: 1;
+}
+
+.theme-label .fa-sun {
+    color: #f1c40f;
+}
+
+.theme-label .fa-moon {
+    color: #f0f0f0;
+}
+
+.theme-ball {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 22px;
+    height: 22px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.theme-switch:checked + .theme-label .theme-ball {
+    transform: translateX(24px);
+}
+
 /* Hero Section */
 .hero {
     text-align: center;
     padding: 80px 20px;
-    background-image: url('Images/one.jpg');
+    background-image: url('images/one.jpg');
     background-size: cover;
     background-position: center;
     color: white;
@@ -112,6 +276,126 @@ header nav ul li a:hover {
     margin-bottom: 20px;
     font-weight: bold;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero p {
+    position: relative;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Trending Carousel Section */
+.trending-section {
+    padding: 40px 20px;
+    background-color: #f0f0f0;
+    margin-bottom: 40px;
+}
+
+body.dark-mode .trending-section {
+    background-color: #1a1a1a;
+}
+
+.trending-carousel {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.trending-card {
+    min-width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.trending-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.trending-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #6e1212;
+}
+
+body.dark-mode .trending-card h3 {
+    color: #ff6b6b;
+}
+
+.trending-card p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+body.dark-mode .trending-card p {
+    color: #ccc;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(110, 18, 18, 0.7);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background-color: #6e1212;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #6e1212;
+}
+
+body.dark-mode .dot.active {
+    background-color: #ff6b6b;
 }
 
 /* Countries Section */
@@ -119,13 +403,22 @@ header nav ul li a:hover {
     padding: 60px 20px;
     background-color: white;
     margin-bottom: 60px;
-    border-top: 3px solid #6e1212; /* Added border for contrast */
+    border-top: 3px solid #6e1212;
+}
+
+body.dark-mode .section {
+    background-color: #1e1e1e;
+    border-top-color: #ff6b6b;
 }
 
 h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
     text-align: center;
+}
+
+body.dark-mode h2 {
+    color: #f0f0f0;
 }
 
 .country-list {
@@ -152,12 +445,13 @@ h2 {
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .country:hover {
     transform: scale(1.05);
     background-color: #f1f1f1;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .country img {
@@ -177,12 +471,14 @@ h2 {
     padding: 15px;
     background-color: #f1f1f1;
     margin: 0;
+    transition: color 0.3s ease;
 }
 
 .country p {
     padding: 15px;
     color: #555;
     background-color: #fff;
+    transition: color 0.3s ease;
 }
 
 /* Modify hover text color for better contrast */
@@ -216,6 +512,10 @@ h2 {
 .about-content p {
     font-size: 1.2rem;
     line-height: 1.6;
+}
+
+body.dark-mode .about-content p {
+    color: #f0f0f0;
 }
 
 /* Contact Form */
@@ -260,6 +560,38 @@ textarea {
     transform: scale(1.05);
 }
 
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #6e1212;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: #ff6b6b;
+    transform: translateY(-5px);
+}
+
 /* Footer */
 footer {
     background-color: #333;
@@ -268,4 +600,148 @@ footer {
     padding: 20px 0;
     grid-area: footer;
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.social-links {
+    margin-bottom: 15px;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ff6b6b;
+    transform: translateY(-3px);
+}
+
+/* Loading Animation */
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+body.dark-mode .loader-wrapper {
+    background-color: #121212;
+}
+
+.loader {
+    text-align: center;
+}
+
+.plane {
+    font-size: 3rem;
+    color: #6e1212;
+    animation: fly 2s infinite ease-in-out;
+}
+
+body.dark-mode .plane {
+    color: #ff6b6b;
+}
+
+.cloud {
+    position: absolute;
+    color: #ccc;
+    opacity: 0.7;
+    animation: float 5s infinite ease-in-out;
+}
+
+.cloud1 {
+    font-size: 2rem;
+    top: 30%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.cloud2 {
+    font-size: 1.5rem;
+    top: 50%;
+    left: 70%;
+    animation-delay: 1s;
+}
+
+.cloud3 {
+    font-size: 2.5rem;
+    top: 70%;
+    left: 40%;
+    animation-delay: 0.5s;
+}
+
+.loader p {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+body.dark-mode .loader p {
+    color: #f0f0f0;
+}
+
+.loader-wrapper.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+@keyframes fly {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(20px);
+    }
+}
+
+/* Search Pin Animation */
+@keyframes pinDrop {
+    0% {
+        transform: translateY(-20px) scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(0) scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.search-pin {
+    position: absolute;
+    font-size: 2rem;
+    color: #6e1212;
+    animation: pinDrop 0.8s ease-out forwards;
+    z-index: 100;
+    pointer-events: none;
+}
+
+body.dark-mode .search-pin {
+    color: #ff6b6b;
 }
