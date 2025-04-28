@@ -117,27 +117,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const trendingDestinations = [
         {
             name: "Bali, Indonesia",
-            Image: "Images/bali.jpeg",
+            Image: "Images/bali.jpg",
             description: "Known for its volcanic mountains, beaches and coral reefs."
         },
         {
             name: "Paris, France",
-            Image: "Images/paris.jpeg",
+            Image: "Images/paris.jpg",
             description: "The City of Light, famous for art, gastronomy and culture."
         },
         {
             name: "Kyoto, Japan",
-            Image: "Images/kyoto.jpeg",
+            Image: "Images/kyoto.jpg",
             description: "Classical temples, gardens, palaces and wooden houses."
         },
         {
             name: "New York City, USA",
-            Image: "Images/newyork.jpeg",
+            Image: "Images/newyork.jpg",
             description: "Times Square, Central Park, museums and skyscrapers."
         },
         {
             name: "Cape Town, South Africa",
-            Image: "Images/capetown.jpeg",
+            Image: "Images/capetown.jpg",
             description: "Table Mountain, beaches, wildlife and vineyards."
         }
     ];
