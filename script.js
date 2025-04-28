@@ -115,44 +115,42 @@ document.addEventListener('DOMContentLoaded', function() {
     const dotsContainer = document.getElementById('carousel-dots');
 
     const trendingDestinations = [
-    {
-        name: "Bali, Indonesia",
-        image: "Images/bali.jpg",
-        description: "Known for its volcanic mountains, beaches and coral reefs."
-    },
-    {
-        name: "Paris, France",
-        image: "Images/paris.jpg",
-        description: "The City of Light, famous for art, gastronomy and culture."
-    },
-    {
-        name: "Kyoto, Japan",
-        image: "Images/kyoto.jpg",
-        description: "Classical temples, gardens, palaces and wooden houses."
-    },
-    {
-        name: "New York City, USA",
-        image: "Images/newyork.jpg",
-        description: "Times Square, Central Park, museums and skyscrapers."
-    },
-    {
-        name: "Cape Town, South Africa",
-        image: "Images/capetown.jpg",
-        description: "Table Mountain, beaches, wildlife and vineyards."
-    }
-];
+        {
+            name: "Bali, Indonesia",
+            image: "Images/bali.jpg",
+            description: "Known for its volcanic mountains, beaches and coral reefs."
+        },
+        {
+            name: "Paris, France",
+            image: "Images/paris.jpg",
+            description: "The City of Light, famous for art, gastronomy and culture."
+        },
+        {
+            name: "Kyoto, Japan",
+            image: "Images/kyoto.jpg",
+            description: "Classical temples, gardens, palaces and wooden houses."
+        },
+        {
+            name: "New York City, USA",
+            image: "Images/newyork.jpg",
+            description: "Times Square, Central Park, museums and skyscrapers."
+        },
+        {
+            name: "Cape Town, South Africa",
+            image: "Images/capetown.jpg",
+            description: "Table Mountain, beaches, wildlife and vineyards."
+        }
+    ];
 
-trendingDestinations.forEach((destination, index) => {
-    const slide = document.createElement('div');
-    slide.classList.add('trending-card');
-    if (index === 0) slide.classList.add('active');
-    slide.innerHTML = `
-        <img src="${destination.image}" alt="${destination.name}">
-        <h3>${destination.name}</h3>
-        <p>${destination.description}</p>
-    `;
-    document.getElementById('carousel-container').appendChild(slide);
-});
+    trendingDestinations.forEach((destination, index) => {
+        const slide = document.createElement('div');
+        slide.classList.add('trending-card');
+        if (index === 0) slide.classList.add('active');
+        slide.innerHTML = `
+            <img src="${destination.image}" alt="${destination.name}">
+            <h3>${destination.name}</h3>
+            <p>${destination.description}</p>
+        `;
         carouselContainer.appendChild(slide);
 
         const dot = document.createElement('div');
@@ -246,3 +244,4 @@ trendingDestinations.forEach((destination, index) => {
         });
     });
 });
+
